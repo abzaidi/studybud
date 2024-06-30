@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from django.db.models import Q
 from .models import Room, Topic
 from .forms import RoomForm
@@ -9,6 +10,10 @@ from .forms import RoomForm
 #     {'id': 2, 'name': 'looking for fellow javascript learner'},
 #     {'id': 3, 'name': 'lets learn algorithms together'},
 # ]
+
+def loginPage(request):
+    context = {}
+    return render(request, 'base/login_register.html', context)
 
 
 def home(request):
